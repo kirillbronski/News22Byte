@@ -26,6 +26,7 @@ class ArticleFragment : Fragment() {
         val url = arguments?.getString(URL)
         binding.webView.apply {
             webViewClient = WebViewClient()
+            settings.javaScriptEnabled = true
             if (url != null) {
                 loadUrl(url)
             }
