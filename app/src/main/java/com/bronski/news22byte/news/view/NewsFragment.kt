@@ -1,4 +1,4 @@
-package com.bronski.news22byte.news
+package com.bronski.news22byte.news.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,9 +12,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bronski.news22byte.MainActivity
 import com.bronski.news22byte.R
-import com.bronski.news22byte.article.ArticleFragment
+import com.bronski.news22byte.article.view.ArticleFragment
+import com.bronski.news22byte.core.state.ViewState
 import com.bronski.news22byte.databinding.FragmentNewsBinding
-import com.bronski.news22byte.state.ViewState
+import com.bronski.news22byte.news.view.adapter.NewsAdapter
+import com.bronski.news22byte.news.viewmodel.NewsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NewsFragment : Fragment() {
@@ -25,7 +27,7 @@ class NewsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentNewsBinding.inflate(inflater, container, false)
         return binding.root

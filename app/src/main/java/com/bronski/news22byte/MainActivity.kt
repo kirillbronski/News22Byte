@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.bronski.news22byte.extension.inTransaction
-import com.bronski.news22byte.news.NewsFragment
+import com.bronski.news22byte.core.extension.inTransaction
+import com.bronski.news22byte.news.view.NewsFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         transaction: FragmentTransaction.() -> FragmentTransaction = {
             replace(R.id.fragment_container, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        }
+        },
     ) {
         supportFragmentManager.inTransaction {
             transaction.invoke(this)

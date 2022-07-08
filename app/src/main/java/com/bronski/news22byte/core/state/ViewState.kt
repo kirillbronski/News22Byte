@@ -1,6 +1,6 @@
-package com.bronski.news22byte.state
+package com.bronski.news22byte.core.state
 
-import com.bronski.news22byte.api.NewsResponse
+import com.bronski.news22byte.core.api.NewsResponse
 
 sealed class ViewState {
     object DefaultState : ViewState()

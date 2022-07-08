@@ -1,9 +1,10 @@
-package com.bronski.news22byte.news
+package com.bronski.news22byte.news.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bronski.news22byte.state.ViewState
-import com.bronski.news22byte.utils.BaseResult
+import com.bronski.news22byte.core.state.ViewState
+import com.bronski.news22byte.core.utils.BaseResult
+import com.bronski.news22byte.news.model.INewsRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -11,7 +12,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class NewsViewModel(
-    private val newsRepo: INewsRepo
+    private val newsRepo: INewsRepo,
 ) : ViewModel() {
 
     private val _viewState = MutableStateFlow<ViewState>(ViewState.DefaultState)

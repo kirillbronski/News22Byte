@@ -1,10 +1,10 @@
 package com.bronski.news22byte.di
 
-import com.bronski.news22byte.api.NewsApi
-import com.bronski.news22byte.news.NewsViewModel
-import com.bronski.news22byte.utils.Constants.Companion.BASE_URL
+import com.bronski.news22byte.core.api.NewsApi
+import com.bronski.news22byte.core.utils.Constants.Companion.BASE_URL
+import com.bronski.news22byte.news.viewmodel.NewsViewModel
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -16,31 +16,15 @@ val appModule = module {
         NewsViewModel(newsRepo = get())
     }
 
-    single { provideInterceptor() }
-    single { provideOkHttpClient(loggingInterceptor = get()) }
-    single { provideRetrofit(okHttpClient = get()) }
-    single { provideNewsApi(retrofit = get()) }
+    single { provideNewsApi() }
 }
 
-private fun provideInterceptor(): HttpLoggingInterceptor {
-    return HttpLoggingInterceptor()
-        .setLevel(HttpLoggingInterceptor.Level.BODY)
-}
-
-private fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
-    return OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
-        .build()
-}
-
-private fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+private fun provideNewsApi(): NewsApi {
     return Retrofit.Builder()
         .baseUrl(BASE_URL)
-        .client(okHttpClient)
+        .client(OkHttpClient.Builder().build())
         .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
-}
-
-private fun provideNewsApi(retrofit: Retrofit): NewsApi {
-    return retrofit.create(NewsApi::class.java)
+        .create(NewsApi::class.java)
 }

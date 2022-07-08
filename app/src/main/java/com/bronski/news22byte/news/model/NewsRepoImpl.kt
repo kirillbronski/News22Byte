@@ -1,10 +1,10 @@
-package com.bronski.news22byte.news
+package com.bronski.news22byte.news.model
 
-import com.bronski.news22byte.api.NewsApi
-import com.bronski.news22byte.utils.BaseResult
+import com.bronski.news22byte.core.api.NewsApi
+import com.bronski.news22byte.core.utils.BaseResult
 
 class NewsRepoImpl(
-    private val newsApi: NewsApi
+    private val newsApi: NewsApi,
 ) : INewsRepo {
 
     override suspend fun getNews(): BaseResult =

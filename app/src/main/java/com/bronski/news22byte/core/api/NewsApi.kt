@@ -1,7 +1,7 @@
-package com.bronski.news22byte.api
+package com.bronski.news22byte.core.api
 
-import com.bronski.news22byte.utils.Constants.Companion.API_KEY
-import com.bronski.news22byte.utils.Constants.Companion.TOP_HEADLINES
+import com.bronski.news22byte.core.utils.Constants.Companion.API_KEY
+import com.bronski.news22byte.core.utils.Constants.Companion.TOP_HEADLINES
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -14,6 +14,6 @@ interface NewsApi {
         @Query("page")
         pageNumber: Int = 1,
         @Query("apiKey")
-        apiKey: String = API_KEY
+        apiKey: String = API_KEY,
     ): NewsResponse
 }

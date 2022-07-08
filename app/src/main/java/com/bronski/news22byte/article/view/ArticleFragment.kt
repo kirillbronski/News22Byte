@@ -1,4 +1,4 @@
-package com.bronski.news22byte.article
+package com.bronski.news22byte.article.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
+import com.bronski.news22byte.core.utils.Constants.Companion.URL
 import com.bronski.news22byte.databinding.FragmentArticleBinding
-import com.bronski.news22byte.utils.Constants.Companion.URL
 
 class ArticleFragment : Fragment() {
 
@@ -15,7 +15,7 @@ class ArticleFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentArticleBinding.inflate(inflater, container, false)
         return binding.root

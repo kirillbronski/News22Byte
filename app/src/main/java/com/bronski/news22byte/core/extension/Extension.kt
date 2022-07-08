@@ -1,4 +1,4 @@
-package com.bronski.news22byte.extension
+package com.bronski.news22byte.core.extension
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction

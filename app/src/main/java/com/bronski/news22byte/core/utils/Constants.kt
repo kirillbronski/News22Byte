@@ -1,4 +1,4 @@
-package com.bronski.news22byte.utils
+package com.bronski.news22byte.core.utils
 
 import com.bronski.news22byte.BuildConfig
 

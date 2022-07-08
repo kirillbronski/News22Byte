@@ -1,4 +1,4 @@
-package com.bronski.news22byte.news
+package com.bronski.news22byte.news.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bronski.news22byte.R
-import com.bronski.news22byte.api.ArticleEntity
+import com.bronski.news22byte.core.api.ArticleEntity
 import com.bronski.news22byte.databinding.ItemNewsBinding
 import com.bumptech.glide.Glide
 
@@ -60,6 +60,6 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     }
 
     class NewsViewHolder(
-        val binding: ItemNewsBinding
+        val binding: ItemNewsBinding,
     ) : RecyclerView.ViewHolder(binding.root)
 }
