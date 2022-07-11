@@ -8,5 +8,6 @@ class Constants {
         const val BASE_URL = "https://newsapi.org/v2/"
         const val URL = "URL"
         const val TOP_HEADLINES = "top-headlines"
+        const val QUERY_PAGE_SIZE = 20
     }
 }

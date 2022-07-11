@@ -7,9 +7,9 @@ class NewsRepoImpl(
     private val newsApi: NewsApi,
 ) : INewsRepo {
 
-    override suspend fun getNews(): BaseResult =
+    override suspend fun getNews(page: Int): BaseResult =
         runCatching {
-            newsApi.getBreakingNews()
+            newsApi.getBreakingNews(pageNumber = page)
         }.fold(
             onSuccess = {
                 BaseResult.Success(it)
